@@ -7,7 +7,8 @@ from app.model_loader import load_model, predict_image
 # Load model once
 model = None
 try:
-    model = load_model(os.path.join("model", "blood_group_model_best.pth"))
+    model = load_model(os.path.join("app", "model", "blood_group_model_best.pth"))
+    print("Model loaded successfully.")
 except Exception as e:
     print(f"Error loading model: {e}")
 
@@ -82,5 +83,6 @@ def result():
 def logout():
     # your logout logic here (e.g., session pop, redirect)
     return redirect(url_for('home'))  # or wherever you want to redirect after logout
+
 
 
