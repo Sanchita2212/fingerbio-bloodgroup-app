@@ -16,15 +16,3 @@ class BloodGroupCNN(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-def load_model(model_path):
-    # Load the checkpoint
-    checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
-
-    # Initialize the model
-    model = BloodGroupCNN(num_classes=len(checkpoint['class_names']))
-    model.load_state_dict(checkpoint['model_state_dict'])
-    model.eval()
-
-    # Return the model and class names
-    return model, checkpoint['class_names']
-
